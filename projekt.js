@@ -1,4 +1,4 @@
-const checkpoint = 300;
+/*const checkpoint = 300;
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
@@ -8,4 +8,11 @@ window.addEventListener("scroll", () => {
         opacity = 0;
     }
     document.querySelector(".front").style.opacity = opacity;
-});
+});*/
+$(".button").on("click", function() {
+    alert("hej")
+    $(".stapeldiagram").animate({
+        left: 50 + 'px',
+        top: 50 + 'px'
+    }, "slow")
+})
