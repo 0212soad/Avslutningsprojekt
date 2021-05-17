@@ -10,36 +10,46 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <!--Chartist-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <!--Koppla css och js-->
     <link type="text/css" rel="stylesheet" href="projekt.css" />
-    <script src="projekt.js"></script>
+
     <title>Avslutningsuppgift</title>
+
 </head>
 
 <body>
-    <!--chartist-->
+
     <main>
-        <ul>
-            <li><a class="active" href="#">Home</a></li>
-            <li><a href="#">Color Themes</a></li>
-            <li><a href="#">Help</a></li>
-            <li class="logga"><a href="#">Log In</a></li>
-        </ul>
+        <header>
+            <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <a class="zoom" href="#">Get Started</a>
+                <a href="#">Color Themes</a>
+                <a href="#">Contact</a>
+                <a href="#">About</a>
+            </div>
+            <button class="openbtn" onclick="openNav()">☰</button>
+            <button class="zoom logIn">Log In</button>
+        </header>
         <div class="front">
             <div class="wrapper">
-                <div class="a bergSol"></div>
-                <div class="a böcker"></div>
-                <div class="a cirkeldiagram"></div>
-                <div class="a grafdiagram"></div>
-                <div class="a blåKvinna"></div>
-                <div class="a gulKvinna"></div>
-                <div class="a man"></div>
-                <div class="a penna"></div>
-                <div class="a skylt"></div>
-                <div class="a stapeldiagram"></div>
+                <img src="bilder/bergSol.png" alt="bergSol" class="a bergSol">
+                <img src="bilder/böcker.png" alt="böcker" class="a böcker">
+                <img src="bilder/cirkeldiagram.png" alt="cirkeldiagram" class="a cirkeldiagram">
+                <img src="bilder/grafdiagram.png" alt="grafdiagram" class="a grafdiagram">
+                <img src="bilder/blåKvinna.png" alt="kvinna" class="a blåKvinna">
+                <img src="bilder/gulKvinna.png" alt="kvinna" class="a gulKvinna">
+                <img src="bilder/man.png" alt="man" class="a man">
+                <img src="bilder/penna.png" alt="penna" class="a penna">
+                <img src="bilder/skylt.png" alt="skylt" class="a skylt">
+                <img src="bilder/stapeldiagram.png" alt="stapeldiagram" class="a stapeldiagram">
             </div>
+            <div id="ct-chart" class="ct-chart ct-major-sixth"></div>
         </div>
-        <div class="button">Get Started</div>
+        <button onclick="setTimeout(Grafer(), 1000);" class="zoom getStarted">Get Started</>
         <!--<div class="wrapper">
             <div style="background-image: url(bilder/bakgrund1.png);"></div>
             <div class="front" style="background-image: url(bilder/bakgrund1.png); filter: blur(10px);"></div>
@@ -48,6 +58,7 @@
 
         </footer>
     </main>
+    <script src="projekt.js"></script>
 </body>
 
 </html>
