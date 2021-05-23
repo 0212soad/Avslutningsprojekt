@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--Font-awesome-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Chartist-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
@@ -24,14 +26,16 @@
 
     <main>
         <header>
-            <div id="mySidepanel" class="sidepanel">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <a class="zoom" href="#">Get Started</a>
-                <a href="#">Color Themes</a>
-                <a href="#">Contact</a>
-                <a href="#">About</a>
+            <div id="mySidepanel1" class="sidepanel1">
+                <a href="javascript:void(0)" class="closebtn1" onclick="closeNav1()">×</a>
+                <img class="logo1" src="bilder/logo.png" alt="logo">
+                <a class="zoom graph" onclick="ShowGraph()">Get Started</a>
+                <a class="zoom color" onclick="Color()">Color Themes</a>
+                <a class="zoom contact" onclick="Contact()">Contact</a>
+                <a class="zoom about" onclick="About()">About</a>
             </div>
-            <button class="openbtn" onclick="openNav()">☰</button>
+            <button class="openbtn1" onclick="openNav1()">☰</button>
+            <img class="logo2" src="bilder/logo.png" alt="logo">
             <button class="zoom logIn">Log In</button>
         </header>
         <div class="front">
@@ -49,7 +53,17 @@
             </div>
             <div id="ct-chart" class="ct-chart ct-major-sixth"></div>
         </div>
-        <button onclick="setTimeout(Grafer(), 1000);" class="zoom getStarted">Get Started</>
+        <button onclick="ShowGraph()" class="zoom graph getStarted">Get Started</button>
+        <div id="mySidepanel2" class="sidepanel2">
+            <h2>Choose type of chart</h2>
+            <div class="btn-group">
+                <button onclick="Bar()" class="bar">Bar</button>
+                <button onclick="Line()" class="line">Line</button>
+                <input type="text">
+                <input type="text">
+            </div>
+        </div>
+        <button id="openbtn2" class="openbtn2" onclick="toggleNav2()">&lt;</button>
         <!--<div class="wrapper">
             <div style="background-image: url(bilder/bakgrund1.png);"></div>
             <div class="front" style="background-image: url(bilder/bakgrund1.png); filter: blur(10px);"></div>
