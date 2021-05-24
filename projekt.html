@@ -30,7 +30,6 @@
                 <a href="javascript:void(0)" class="closebtn1" onclick="closeNav1()">×</a>
                 <img class="logo1" src="bilder/logo.png" alt="logo">
                 <a class="zoom graph" onclick="ShowGraph()">Get Started</a>
-                <a class="zoom color" onclick="Color()">Color Themes</a>
                 <a class="zoom contact" onclick="Contact()">Contact</a>
                 <a class="zoom about" onclick="About()">About</a>
             </div>
@@ -53,15 +52,17 @@
             </div>
             <div id="ct-chart" class="ct-chart ct-major-sixth"></div>
         </div>
-        <button onclick="ShowGraph()" class="zoom graph getStarted">Get Started</button>
+        <button onclick="ShowChart()" class="zoom graph getStarted">Get Started</button>
         <div id="mySidepanel2" class="sidepanel2">
             <h2>Choose type of chart</h2>
             <div class="btn-group">
                 <button onclick="Bar()" class="bar">Bar</button>
                 <button onclick="Line()" class="line">Line</button>
-                <input type="text">
-                <input type="text">
             </div>
+            <input class="xCoordLine" type="text">
+            <input class="yCoordLine" type="text">
+            <input class="yCoordBar" type="text">
+            <input class="xCoordBar" type="text">
         </div>
         <button id="openbtn2" class="openbtn2" onclick="toggleNav2()">&lt;</button>
         <!--<div class="wrapper">

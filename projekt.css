@@ -254,7 +254,6 @@ header {
     z-index: 3;
     opacity: 0%;
     transition: 2000ms;
-    max-height: 100%;
 }
 
 .ct-chart.animate {
@@ -307,11 +306,15 @@ header {
     top: 45vh;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
-    display: none;
+    opacity: 0;
 }
 
 .openbtn2:hover {
     background-color: #444;
+}
+
+.openbtn2.animate {
+    opacity: 100%;
 }
 
 h2 {
@@ -345,4 +348,8 @@ h2 {
 .line {
     grid-column: 4;
     grid-row: 2;
+}
+
+.sidepanel2 input {
+    opacity: 0%;
 }
