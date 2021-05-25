@@ -73,6 +73,10 @@ button:focus {
     outline: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 
 /*Navbar*/
 
@@ -140,13 +144,9 @@ header {
     background-size: cover;
     background-position: center 6vh;
     background-repeat: no-repeat;
-    filter: blur(5px);
-    transition: 1000ms;
-}
-
-.front.animate {
-    transform: scale(2.9);
-    filter: blur(0);
+    filter: blur(0px);
+    transition: 10000ms;
+    background-size: 100%;
 }
 
 .getStarted {
@@ -162,10 +162,6 @@ header {
     text-decoration: none;
     opacity: 100%;
     transition: 1000ms;
-}
-
-.getStarted.animate {
-    left: 110vw;
 }
 
 .getStarted:hover {
@@ -249,27 +245,15 @@ header {
 
 .ct-chart {
     position: absolute;
-    top: 34%;
-    left: 31.5%;
+    top: 5%;
+    left: 2%;
     z-index: 3;
-    opacity: 0%;
+    display: none;
     transition: 2000ms;
 }
 
-.ct-chart.animate {
-    opacity: 100%;
-}
-
-.ct-series .ct-line {
-    stroke-width: 0.1vw;
-}
-
-.ct-series .ct-point {
-    stroke-width: 0.28vw;
-}
-
-.ct-label {
-    font-size: 0.3vw;
+.ct-bar {
+    stroke-width: 4vh;
 }
 
 
@@ -306,15 +290,11 @@ header {
     top: 45vh;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
-    opacity: 0;
+    display: none;
 }
 
 .openbtn2:hover {
     background-color: #444;
-}
-
-.openbtn2.animate {
-    opacity: 100%;
 }
 
 h2 {
@@ -325,7 +305,7 @@ h2 {
 
 .btn-group {
     display: grid;
-    grid-template-rows: 10vh 30vh;
+    grid-template-rows: 2vh 0.1vh 8vh 6vh 6vh 13vh;
     grid-template-columns: 5vw 13vw 3vw 13vw;
 }
 
@@ -340,16 +320,68 @@ h2 {
     background-color: white;
 }
 
+.rubrikA {
+    grid-column: 3/5;
+    grid-row: 1;
+}
+
 .bar {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 4/7;
 }
 
 .line {
     grid-column: 4;
-    grid-row: 2;
+    grid-row: 4/7;
 }
 
-.sidepanel2 input {
-    opacity: 0%;
+.sidepanel2 input,
+.doneLine,
+.nextPoint,
+.rubrikB,
+.rubrikC,
+.rubrikD,
+.rubrikE,
+.doneBar,
+.nextBar {
+    display: none;
+}
+
+.xCoordLine,
+.xCoordBar {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.yCoordLine,
+.yCoordBar {
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.doneLine,
+.doneBar {
+    grid-column: 4;
+    grid-row: 6;
+    background-color: #D70206;
+}
+
+.nextPoint,
+.nextBar {
+    grid-column: 2;
+    grid-row: 6;
+}
+
+.rubrikB,
+.rubrikD {
+    grid-column: 2;
+    grid-row: 3;
+    color: white;
+}
+
+.rubrikC,
+.rubrikE {
+    grid-column: 4;
+    grid-row: 3;
+    color: white;
 }

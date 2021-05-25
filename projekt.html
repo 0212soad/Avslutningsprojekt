@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Font-awesome-->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!--jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Chartist-->
@@ -37,7 +32,7 @@
             <img class="logo2" src="bilder/logo.png" alt="logo">
             <button class="zoom logIn">Log In</button>
         </header>
-        <div class="front">
+        <div id="front" class="front">
             <div class="wrapper">
                 <img src="bilder/bergSol.png" alt="bergSol" class="a bergSol">
                 <img src="bilder/böcker.png" alt="böcker" class="a böcker">
@@ -52,23 +47,25 @@
             </div>
             <div id="ct-chart" class="ct-chart ct-major-sixth"></div>
         </div>
-        <button onclick="ShowChart()" class="zoom graph getStarted">Get Started</button>
+        <button onclick="ShowChart(),zoomit()" class="zoom graph getStarted">Get Started</button>
         <div id="mySidepanel2" class="sidepanel2">
-            <h2>Choose type of chart</h2>
+            <h2 class="rubrikA" id="rubrikA">Choose type of chart</h2>
             <div class="btn-group">
-                <button onclick="Bar()" class="bar">Bar</button>
-                <button onclick="Line()" class="line">Line</button>
+                <button onclick="makeChartBar(), pressBar()" class="bar">Bar</button>
+                <button onclick="makeChartLine(), pressLine()" class="line">Line</button>
+                <h4 class="rubrikB">Name</h4>
+                <h4 class="rubrikC">Value</h4>
+                <input id="xCoordLine" class="xCoordLine" type="text">
+                <input id="yCoordLine" class="yCoordLine" type="text">
+                <input class="xCoordBar" id="xCoordBar" type="text">
+                <input class="yCoordBar" id="yCoordBar" type="text">
+                <button class="nextPoint" onclick="nextPoint(), pressLine()">Next Point</button>
+                <button class="doneLine" onclick="nextPoint(),makeChartLine(), pressDone(), startAgain()">Done</button>
+                <button class="nextBar" onclick="nextBar(), pressBar()">Next Bar</button>
+                <button class="doneBar" onclick="nextBar(),makeChartBar(), pressDone(), startAgain()">Done</button>
             </div>
-            <input class="xCoordLine" type="text">
-            <input class="yCoordLine" type="text">
-            <input class="yCoordBar" type="text">
-            <input class="xCoordBar" type="text">
         </div>
         <button id="openbtn2" class="openbtn2" onclick="toggleNav2()">&lt;</button>
-        <!--<div class="wrapper">
-            <div style="background-image: url(bilder/bakgrund1.png);"></div>
-            <div class="front" style="background-image: url(bilder/bakgrund1.png); filter: blur(10px);"></div>
-        </div>-->
         <footer>
 
         </footer>
