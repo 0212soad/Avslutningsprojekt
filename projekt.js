@@ -1,13 +1,17 @@
+//Publika variabler som används "mellan" olika funktioner
 var chart = 0;
+//'f' och 'r' är endast kontrollvariabler och saknar därför namn
 var f = 0;
 var r = 0;
+//Värdena som visas då graferna öppnas för första gången
 let xCoordBar = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 let yCoordBar = [1, 4, 3, 7, 5, 10, 3];
 let xCoordLine = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 let yCoordLine = [1, 4, 3, 7, 5, 10, 3];
-$(document).ready(function() {
-    $(".zoom").on("click", function() {
-        $(".a").each(function() {
+
+//Animerar alla "lösa" images ur bild
+function moveImages() {
+    $(".a").each(function() {
             var left = $(this).position().left;
             var top = $(this).position().top;
             if (left <= 550) {
@@ -28,27 +32,26 @@ $(document).ready(function() {
                 }, 1000)
             }
         })
-        if (document.getElementById("mySidepanel1").style.width == "26%") {
-            $(".sidepanel1").css("width", "0%");
-        }
-        $(".getStarted").hide();
-    })
+        //Stänger sidpanel 1 ifall den är öppen
+    if (document.getElementById("mySidepanel1").style.width == "26%") {
+        $(".sidepanel1").css("width", "0%");
+    }
+    //Gömmer 'Get Started'-knappen
+    $(".getStarted").hide();
+}
 
-})
-
-//Sidepanel 1
-
+//Öppnar sidpanel 1
 function openNav1() {
     $(".sidepanel1").css("width", "26%");
 }
 
+//Stänger sidpanel 1
 function closeNav1() {
     $(".sidepanel1").css("width", "0%");
 }
 var nav = false;
 
-//Sidepanel 2
-
+//Öppnar sidpanel 2, visar dess innehåll och byter håll på '>'
 function openNav2() {
     $(".sidepanel2").css("width", "37%");
     $(".openbtn2").css("right", "37%");
@@ -58,6 +61,7 @@ function openNav2() {
     nav = true;
 }
 
+//Stänger sidpanel 2, gömmer dess innehåll och byter håll på '<'
 function closeNav2() {
     $(".sidepanel2").css("width", "0%");
     $(".openbtn2").css("right", "0%");
@@ -67,30 +71,22 @@ function closeNav2() {
     nav = false;
 }
 
+//Skapar toggleeffekten mellan navfunktionerna ovan
 function toggleNav2() {
     nav ? closeNav2() : openNav2();
 }
 
-//Grafer
-
-function ShowChart() {
+//Visar (enbart) graf-griden då graftypen ännu inte har valts
+function showGrid() {
     openNav2();
     $(".ct-chart").fadeIn();
     $(".openbtn2").fadeIn();
     var data = {
-        series: [
-            [
-                { x: 0, y: 1 },
-                { x: 2, y: 2 },
-                { x: 4, y: 3 },
-                { x: 6, y: 4 },
-                { x: 8, y: 5 }
-            ]
-        ]
+        series: [10],
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     }
     var options = {
         axisX: {
-            type: Chartist.AutoScaleAxis,
             scaleMinSpace: 60,
         },
         axisY: {
@@ -107,6 +103,7 @@ function ShowChart() {
     animate();
 }
 
+//Gömmer och visar olika element då 'Bar' klickas
 function pressBar() {
     $(".xCoordBar").show();
     $(".yCoordBar").show();
@@ -116,6 +113,7 @@ function pressBar() {
     $(".line").hide();
     $(".rubrikB").show();
     $(".rubrikC").show();
+    //Ändrar rubrik A beroende på om användaren skriver första eller nästkommande värden
     if (r == 0) {
         document.getElementById("rubrikA").innerHTML = "Enter data for the first bar";
         r = 1;
@@ -124,6 +122,7 @@ function pressBar() {
     }
 }
 
+//Samma fast för 'Line'
 function pressLine() {
     $(".xCoordLine").show();
     $(".yCoordLine").show();
@@ -141,6 +140,7 @@ function pressLine() {
     }
 }
 
+//Sätter in namnet och värdet på stapeln i var sin array och raderar värdet i inputen
 function nextBar() {
     xCoordBar[f] = $(".xCoordBar").val();
     document.getElementById("xCoordBar").value = "";
@@ -149,6 +149,7 @@ function nextBar() {
     f++;
 }
 
+//Samma fast för en punkt i linjediagrammet
 function nextPoint() {
     xCoordLine[f] = $(".xCoordLine").val();
     document.getElementById('xCoordLine').value = "";
@@ -157,32 +158,40 @@ function nextPoint() {
     f++;
 }
 
+//Skapar stapeldiagrammet
 function makeChartBar() {
+    //Använder de publika variablerna som fick sina värden i funktionen 'nextBar()'
     var data = {
-        labels: xCoordBar,
-        series: [yCoordBar]
-    }
+            labels: xCoordBar,
+            series: [yCoordBar]
+        }
+        //Visuella inställningar
     var options = {
-        axisX: {
-            scaleMinSpace: 40,
-        },
-        axisY: {
-            scaleMinSpace: 40,
-        },
-        low: 0,
-        width: "55%",
-        height: "65%",
-        showLine: true,
-        showLabel: true,
-        showPoint: true,
-    }
+            //Ökat avstånd mellan grid-linjer för att minska animationstiden
+            axisX: {
+                scaleMinSpace: 50,
+            },
+            axisY: {
+                scaleMinSpace: 50,
+            },
+            low: 0,
+            width: "55%",
+            height: "65%",
+            //Visar allt som inte visades i funktionen 'showGrid()'
+            showLine: true,
+            showLabel: true,
+            showPoint: true,
+        }
+        //Skapar själva stapeldiagrammet och byter ut grafen i funktionen 'showGrid()'
     chart = new Chartist.Bar('.ct-chart', data, options);
     animate();
+    //Rensar värdena
     xCoordBar = [];
     yCoordBar = [];
     f = 0;
 }
 
+//Samma fast för linjediagrammet
 function makeChartLine() {
     var data = {
         labels: xCoordLine,
@@ -212,6 +221,7 @@ function makeChartLine() {
     f = 0;
 }
 
+//Skapar animationseffekten på grafen så fort den uppdateras
 function animate() {
     var seq = 0,
         delays = 80,
@@ -221,7 +231,7 @@ function animate() {
     });
     chart.on('draw', function(data) {
         seq++;
-
+        //Går igenom varje enskilt element i diagrammet och skapar liknande animationseffekter
         if (data.type === 'line') {
             data.element.animate({
                 opacity: {
@@ -317,6 +327,7 @@ function animate() {
     });
 }
 
+//Gömmer alla element i sidpanel 2 då 'Done' klickas
 function pressDone() {
     $(".xCoordLine").hide();
     $(".yCoordLine").hide();
@@ -330,13 +341,26 @@ function pressDone() {
     $(".nextBar").hide();
 }
 
+//Startar om grafverktyget och byter rubrik
 function startAgain() {
     $(".bar").show();
     $(".line").show();
     document.getElementById("rubrikA").innerHTML = "Create another chart";
 }
 
+//Skapar zoomeffekten ('transform:scale()' skapade problem med chartist)
 function zoomit() {
     document.querySelector('.front').style.backgroundSize = "4000%";
     document.querySelector('.front').style.backgroundPosition = "center -2000vh";
+}
+
+//Gömmer alla element på skärmen då användaren navigerar till en annan plats på sidan
+function hideAllElements() {
+    closeNav2();
+    $(".openbtn2").fadeOut();
+    $(".ct-chart").fadeOut();
+    xCoordBar = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    yCoordBar = [1, 4, 3, 7, 5, 10, 3];
+    xCoordLine = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    yCoordLine = [1, 4, 3, 7, 5, 10, 3];
 }

@@ -12,7 +12,7 @@ main {
 }
 
 
-/*Sidepanel 1*/
+/*Sidpanel 1*/
 
 .sidepanel1 {
     width: 0;
@@ -24,7 +24,7 @@ main {
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 55vh;
+    padding-top: 62vh;
     overflow: hidden;
 }
 
@@ -64,6 +64,9 @@ main {
     background-color: #444;
 }
 
+
+/*Viktiga inställningar för alla buttons*/
+
 button {
     border: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -93,16 +96,16 @@ header {
 
 .logo1 {
     position: absolute;
-    width: 80%;
-    left: 14%;
-    top: 10%;
+    width: 90%;
+    left: 5%;
+    top: 8%;
 }
 
 .logo2 {
     position: inherit;
-    width: 15%;
-    margin-left: 39%;
-    margin-top: -4.7%;
+    width: 22%;
+    margin-left: 33%;
+    margin-top: -8%;
 }
 
 .logIn {
@@ -126,7 +129,7 @@ header {
 }
 
 
-/*Background*/
+/*Bakgrund och 'Get Started'-knapp*/
 
 .wrapper {
     grid-column: 1/4;
@@ -153,7 +156,7 @@ header {
     position: absolute;
     padding: 4vh 6vw;
     left: 41%;
-    top: 49%;
+    top: 50%;
     font-size: 1.2vw;
     color: white;
     z-index: 1;
@@ -161,13 +164,16 @@ header {
     background-color: #111;
     text-decoration: none;
     opacity: 100%;
-    transition: 1000ms;
+    transition: 500ms;
 }
 
 .getStarted:hover {
     cursor: pointer;
     background-color: #444;
 }
+
+
+/*Alla images*/
 
 .wrapper * {
     position: absolute;
@@ -234,14 +240,8 @@ header {
     width: 10%;
 }
 
-.footer {
-    background: black;
-    grid-column: 1/4;
-    grid-row: 4;
-}
 
-
-/*Charts*/
+/*Diagram*/
 
 .ct-chart {
     position: absolute;
@@ -257,7 +257,7 @@ header {
 }
 
 
-/*Sidepanel 2*/
+/*Sidpanel 2*/
 
 .sidepanel2 {
     width: 0;
@@ -301,6 +301,11 @@ h2 {
     color: white;
     text-align: center;
     margin-top: 10vh;
+    font-size: 1.9vw;
+}
+
+h4 {
+    font-size: 1.2vw;
 }
 
 .btn-group {

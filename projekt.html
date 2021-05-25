@@ -10,28 +10,29 @@
     <!--Chartist-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-    <!--Koppla css och js-->
+    <!--Koppla css-->
     <link type="text/css" rel="stylesheet" href="projekt.css" />
-
     <title>Avslutningsuppgift</title>
-
 </head>
 
 <body>
-
     <main>
         <header>
+            <!--Sidpanelen som öppnas då '☰' klickas-->
             <div id="mySidepanel1" class="sidepanel1">
                 <a href="javascript:void(0)" class="closebtn1" onclick="closeNav1()">×</a>
                 <img class="logo1" src="bilder/logo.png" alt="logo">
-                <a class="zoom graph" onclick="ShowGraph()">Get Started</a>
-                <a class="zoom contact" onclick="Contact()">Contact</a>
-                <a class="zoom about" onclick="About()">About</a>
+                <a class="graph" onclick="hideAllElements(), showGrid(), zoomit(), moveImages()">Get Started</a>
+                <a class="contact" onclick="zoomit(), hideAllElements(), moveImages()">Contact</a>
+                <a class="about" onclick="zoomit(), hideAllElements(), moveImages()">About</a>
             </div>
+            <!--Knappen som öppnar/stänger sidpanel 1-->
             <button class="openbtn1" onclick="openNav1()">☰</button>
+
             <img class="logo2" src="bilder/logo.png" alt="logo">
-            <button class="zoom logIn">Log In</button>
+            <button onclick="zoomit(), hideAllElements(), moveImages()" class="logIn">Log In</button>
         </header>
+        <!--Bakgrundsbilden och dess innehåll-->
         <div id="front" class="front">
             <div class="wrapper">
                 <img src="bilder/bergSol.png" alt="bergSol" class="a bergSol">
@@ -45,31 +46,35 @@
                 <img src="bilder/skylt.png" alt="skylt" class="a skylt">
                 <img src="bilder/stapeldiagram.png" alt="stapeldiagram" class="a stapeldiagram">
             </div>
+            <!--Grafen som skapas och sedan ändras-->
             <div id="ct-chart" class="ct-chart ct-major-sixth"></div>
         </div>
-        <button onclick="ShowChart(),zoomit()" class="zoom graph getStarted">Get Started</button>
+        <button onclick="hideAllElements(), showGrid(), zoomit(), moveImages()" class="graph getStarted">Get Started</button>
+        <!--Sidpanelen som visas då 'Get Started' klickas-->
         <div id="mySidepanel2" class="sidepanel2">
             <h2 class="rubrikA" id="rubrikA">Choose type of chart</h2>
             <div class="btn-group">
+                <!--Knapparna som bestämmer graftyp-->
                 <button onclick="makeChartBar(), pressBar()" class="bar">Bar</button>
                 <button onclick="makeChartLine(), pressLine()" class="line">Line</button>
+                <!--Inputarna där grafdatan skrivs in-->
                 <h4 class="rubrikB">Name</h4>
                 <h4 class="rubrikC">Value</h4>
                 <input id="xCoordLine" class="xCoordLine" type="text">
                 <input id="yCoordLine" class="yCoordLine" type="text">
                 <input class="xCoordBar" id="xCoordBar" type="text">
                 <input class="yCoordBar" id="yCoordBar" type="text">
+                <!--Knapparna som visas efter att 'Bar' eller 'Line' klickas-->
                 <button class="nextPoint" onclick="nextPoint(), pressLine()">Next Point</button>
                 <button class="doneLine" onclick="nextPoint(),makeChartLine(), pressDone(), startAgain()">Done</button>
                 <button class="nextBar" onclick="nextBar(), pressBar()">Next Bar</button>
                 <button class="doneBar" onclick="nextBar(),makeChartBar(), pressDone(), startAgain()">Done</button>
             </div>
         </div>
+        <!--Knappen som stänger/öppnar sidpanel 2-->
         <button id="openbtn2" class="openbtn2" onclick="toggleNav2()">&lt;</button>
-        <footer>
-
-        </footer>
     </main>
+    <!--Koppla JavaScript-->
     <script src="projekt.js"></script>
 </body>
 
