@@ -359,8 +359,32 @@ function hideAllElements() {
     closeNav2();
     $(".openbtn2").fadeOut();
     $(".ct-chart").fadeOut();
+    $('.about').hide();
+    $('.contact').hide();
     xCoordBar = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     yCoordBar = [1, 4, 3, 7, 5, 10, 3];
     xCoordLine = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     yCoordLine = [1, 4, 3, 7, 5, 10, 3];
+}
+
+//Visar innehållet i contact
+function contact() {
+    $('.contact').show();
+}
+
+//Visar innehållet i about
+function about() {
+    $('.about').show();
+}
+
+//Öppna log-in-menyn när 'Log In' klickas
+function logIn() {
+    document.getElementById('container').style.display = 'block'
+}
+var container = document.getElementById('container');
+//Stäng menyn när man klickar utanför boxen
+window.onclick = function(event) {
+    if (event.target == container) {
+        container.style.display = "none";
+    }
 }

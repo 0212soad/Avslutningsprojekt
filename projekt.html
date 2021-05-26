@@ -23,14 +23,14 @@
                 <a href="javascript:void(0)" class="closebtn1" onclick="closeNav1()">×</a>
                 <img class="logo1" src="bilder/logo.png" alt="logo">
                 <a class="graph" onclick="hideAllElements(), showGrid(), zoomit(), moveImages()">Get Started</a>
-                <a class="contact" onclick="zoomit(), hideAllElements(), moveImages()">Contact</a>
-                <a class="about" onclick="zoomit(), hideAllElements(), moveImages()">About</a>
+                <a class="contactButton" onclick="zoomit(), hideAllElements(), moveImages(), contact()">Contact</a>
+                <a class="aboutButton" onclick="zoomit(), hideAllElements(), moveImages(), about()">About</a>
             </div>
             <!--Knappen som öppnar/stänger sidpanel 1-->
             <button class="openbtn1" onclick="openNav1()">☰</button>
 
             <img class="logo2" src="bilder/logo.png" alt="logo">
-            <button onclick="zoomit(), hideAllElements(), moveImages()" class="logIn">Log In</button>
+            <button onclick="logIn()" class="logInButton">Log In</button>
         </header>
         <!--Bakgrundsbilden och dess innehåll-->
         <div id="front" class="front">
@@ -73,6 +73,44 @@
         </div>
         <!--Knappen som stänger/öppnar sidpanel 2-->
         <button id="openbtn2" class="openbtn2" onclick="toggleNav2()">&lt;</button>
+        <!--Text i contact-->
+        <div class="contact">
+            <h1>Contact</h1>
+            <p>Mail: chart.maker@gmail.com</p>
+            <p>Tel: 0701234567</p>
+        </div>
+        <!--Text i about-->
+        <div class="about">
+            <h1>About</h1>
+            <p>We are a private organization based in Jönköping.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed id semper risus in. Porttitor leo a diam sollicitudin
+                tempor id. Arcu cursus vitae congue mauris. Urna id volutpat lacus laoreet non curabitur gravida arcu. Laoreet sit amet cursus sit amet dictum. Pharetra convallis posuere morbi leo urna molestie at elementum eu. Gravida in fermentum et
+                sollicitudin. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. </p>
+        </div>
+        <!--log in-->
+        <div class="logIn">
+            <div class="container" id="container">
+                <form class="container-content">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('container').style.display='none'" class="close">×</span>
+                        <img src="bilder/logInIcon.png" alt="Avatar" class="avatar">
+                    </div>
+                    <div class="inputContainer contain">
+                        <label for="username"><b>Username</b></label>
+                        <input class="username" type="text" placeholder="Enter Username" name="username" required>
+                        <label for="password"><b>Password</b></label>
+                        <input class="password" type="password" placeholder="Enter Password" name="password" required>
+                        <button class="submit" type="submit">Login</button>
+                        <label>
+                      <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                    </div>
+                    <div class="footerContainer contain" style="background-color:#f1f1f1">
+                        <button class="cancel" type="button" onclick="document.getElementById('container').style.display='none'">Cancel</button>
+                        <a class="forgotPassword" href="#">Forgot password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
     <!--Koppla JavaScript-->
     <script src="projekt.js"></script>
